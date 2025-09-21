@@ -1,0 +1,54 @@
+$color-primary: #772e6a;
+$color-primary-comp: #3F782F;
+$color-secondary: #ffa200;
+$color-secondary-comp: #007BFF;
+$color-white: white;
+$color-black: black;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  margin: 0;
+  background-attachment: fixed; // opcional: gradiente fixo
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color-primary;
+    padding: 10px;
+    color: white;
+    li {
+        list-style: none;
+    }
+    .left, .right{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+    .left{
+        
+    }
+    .right{
+        img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: $color-white;
+        }
+    }
+}
