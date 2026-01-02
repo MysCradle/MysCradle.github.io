@@ -1,0 +1,40 @@
+
+*, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    transition: all .5s;
+}
+
+nav {
+    padding: 10px;
+    background-image: linear-gradient(to bottom, var(--color-tertiary)25%, var(--color-primary)75%, #00000000);
+    transition: all .5s;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+nav ul li {
+    list-style: none;
+    padding: 5px;
+    background-color: #00000000;
+    transition: all .5s;
+}
+
+nav ul li:hover {
+    background-color: var(--color-second);
+    color: var(--color-background);
+}
+
+.light {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-second);
+}

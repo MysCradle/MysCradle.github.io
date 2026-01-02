@@ -1,0 +1,25 @@
+
+:root{
+    --color-preto: black;
+    --color-branco: white;
+    --color-gray: gray;
+}
+
+.tema--claro{
+    --color-text: var(--color-preto);
+    --color-background: var(--color-branco);
+    --color-primary: var(--color-branco);
+    --color-second: var(--color-preto);
+    --color-tertiary: var(--color-gray);
+}
+.tema--escuro{
+    --color-text: var(--color-branco);
+    --color-background: var(--color-preto);
+    --color-primary: var(--color-preto);
+    --color-second: var(--color-branco);
+    --color-tertiary: var(--color-gray);
+}
+.tema{
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
