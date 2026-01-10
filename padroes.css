@@ -80,6 +80,7 @@
 }
 .subtitle-1 {
     font-size: clamp(10px, 8vw, 30px);
+    text-wrap: nowrap;
 }
 .subtitle-2 {
     color: var(--color-purple);
@@ -93,4 +94,9 @@
     justify-content: start;
     border-radius: 10px;
     background-color: var(--color-primary);
+}
+@media (max-width: 500px) {
+    .subtitle-1{
+        font-size: 20px;
+    }   
 }
