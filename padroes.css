@@ -3,23 +3,94 @@
     --color-preto: black;
     --color-branco: white;
     --color-gray: gray;
+    --color-yellow: #fea201;
+    --color-purple: #762c68;
+    --font-serif: "IM Fell English", serif;
 }
 
 .tema--claro{
     --color-text: var(--color-preto);
     --color-background: var(--color-branco);
     --color-primary: var(--color-branco);
-    --color-second: var(--color-preto);
+    --color-secondary: var(--color-preto);
     --color-tertiary: var(--color-gray);
 }
 .tema--escuro{
-    --color-text: var(--color-branco);
+    --color-text-primary: var(--color-yellow);
+    --color-text-secondary: var(--color-yellow);
     --color-background: var(--color-preto);
     --color-primary: var(--color-preto);
-    --color-second: var(--color-branco);
+    --color-secondary: var(--color-branco);
     --color-tertiary: var(--color-gray);
+    --color-title: var(--color-yellow);
 }
+
 .tema{
     background-color: var(--color-background);
-    color: var(--color-text);
+    color: var(--color-text-primary);
+    font-family: var(--font-serif);
+}
+
+.ma {
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.jc {
+    justify-content: center;
+}
+
+.ac {
+    align-items: center;
+}
+
+.j-sb{
+    justify-content: space-between;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-ci {
+    flex-direction: column-reverse;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+.p-5 {
+    padding: 5px;
+}
+
+.p-100 {
+    padding: 100px;
+}
+
+.title {
+    font-size: clamp(30px, 10vw, 50px);
+}
+.subtitle-1 {
+    font-size: clamp(10px, 8vw, 30px);
+}
+.subtitle-2 {
+    color: var(--color-purple);
+    font-size: clamp(5px, 5vw, 20px);
+}
+.tc {
+    text-align: center;
+}
+
+.card {
+    justify-content: start;
+    border-radius: 10px;
+    background-color: var(--color-primary);
 }
