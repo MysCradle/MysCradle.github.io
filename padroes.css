@@ -90,6 +90,22 @@
     text-align: center;
 }
 
+.cp {
+    color: var(--color-primary);
+}
+
+.cs {
+    color: var(--color-secondary);
+}
+
+.c-purple {
+    color: var(--color-purple);
+}
+
+.c-yellow {
+    color: var(--color-yellow);
+}
+
 .card {
     justify-content: start;
     border-radius: 10px;
