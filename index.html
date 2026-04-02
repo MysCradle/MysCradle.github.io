@@ -1,49 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descubra os Mistérios do Mundo de Dorits">
-    <link rel="shortcut icon" href="images/iconMC.png" type="image/x-icon">
-    <link rel="stylesheet" href="padroes.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-    <title>Mysteries Cradle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/iconMC.png">
+  <title>Vite App</title>
+  <link rel="canonical" href="https://fkaique.tech/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fira+Code:wght@300..700&family=IM+Fell+English:ital@0;1&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+    rel="stylesheet">
 </head>
-<body class="tema tema--escuro">
-    <nav>
-        <ul>
-            <img width="50px" src="images/iconMC.png" alt="">
-            <li><a class="item" href="https://myscradle.github.io/galeria/">Galeria</a></li>
-            <li><a class="item" href="https://myscradle.github.io/jinseidle/">Jinseidle</a></li>
-            <div class="flex-1"></div>
-            <div id="light" class="light"></div>
-        </ul>
-    </nav>
-    <section class="p-100">
-        <h1 class="title flex jc tc">Mysteries Cradle</h1>
-        <p class="subtitle-1 flex jc tc">Descubra os Mistérios do </p><p class="subtitle-1 flex jc tc">Mundo de Dorits</p>
-    </section>
-    <section class="jinseidle p-20 flex jc">
-        <div class="card p-5 flex flex-ci">
-            <div class="section-text">
-                <h1 class="subtitle-1 flex jc">Jinseidle</h1>
-                <p class="subtitle-2 flex jc">Teste seu conhecimento sobre os personagens de Jinsei no Unmei</p>
-            </div>
-            <a href="https://myscradle.github.io/jinseidle/"><img class="" src="images/jinseidle-icon.png"></a>
-        </div>
-        <div class="card p-5 flex flex-ci">
-            <div class="section-text">
-                <h1 class="subtitle-1 flex jc">Galeria</h1>
-                <p class="subtitle-2 flex jc">Conheça os personagens já descobertos e veja o que sabemos sobre eles</p>
-            </div>
-            <a href="https://myscradle.github.io/galeria/"><img class="" src="images/galeria.png"></a>
-        </div>
-        
-    </section>
-    
-    <script src="main.js"></script>
+<style>
+  html,
+body,
+#app {
+    min-height: 100%;
+    background: var(--color-background);
+    margin: 0;
+}
+</style>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
 </body>
+
 </html>
