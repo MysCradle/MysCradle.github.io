@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Card from '@/Components/Card.vue';
-import images from '@/assets/images.json'
+import images from '@/assets/images'
 import { ref } from 'vue';
 
 interface Personagem {

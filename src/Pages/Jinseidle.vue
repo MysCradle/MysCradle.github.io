@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import imagesP from '@/assets/images.json'
+import imagesP from '@/assets/images'
 
 class Personagem {
     constructor(nome, idade, raca, especialidade, reino, organizacao, vivo) {
@@ -361,12 +361,7 @@ function buscarImagem(nome) {
 
         <div class="bodyJin">
             <div class="chooser">
-                <input
-                    id="teste"
-                    type="text"
-                    placeholder="Digite um nome..."
-                    autocomplete="off"
-                />
+                <input id="teste" type="text" placeholder="Digite um nome..." autocomplete="off" />
                 <button id="submit">></button>
             </div>
 
