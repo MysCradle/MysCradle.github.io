@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import imagesP from '@/assets/images'
+import characters from '@/assets/personagens'
+import none from '@/assets/personagens/none.png'
+
 
 class Personagem {
     constructor(nome, idade, raca, especialidade, reino, organizacao, vivo) {
@@ -79,9 +81,6 @@ function resolverImagem(caminho) {
     return defaultImage.value
 }
 
-const dicionarioImagens = Object.fromEntries(
-    Object.entries(imagesP).map(([nome, caminho]) => [nome, resolverImagem(caminho)])
-)
 
 let submit
 let tbody
@@ -110,7 +109,7 @@ onMounted(() => {
     jogos = document.getElementById('jogos')
 
     if (images) {
-        images.innerHTML = `<img src="${dicionarioImagens.none || defaultImage.value}" alt="Imagem do Personagem">`
+        images.innerHTML = `<img src="${none || defaultImage.value}" alt="Imagem do Personagem">`
     }
 
     inicializarEventos()
@@ -220,7 +219,7 @@ function atualizarJogo() {
     personagemSorteadoAtivo = sortearPersonagem()
     tbody.innerHTML = ''
     fim.textContent = ''
-    images.innerHTML = `<img src="${dicionarioImagens.none || defaultImage.value}" alt="Imagem do Personagem">`
+    images.innerHTML = `<img src="${none || defaultImage.value}" alt="Imagem do Personagem">`
     carregarHistorico()
 }
 
@@ -300,7 +299,7 @@ function gerarPersonagem(personagem) {
 
 function carregarHistorico() {
     tbody.innerHTML = ''
-    images.innerHTML = `<img src="${dicionarioImagens.none || defaultImage.value}" alt="Imagem do Personagem">`
+    images.innerHTML = `<img src="${none || defaultImage.value}" alt="Imagem do Personagem">`
     fim.textContent = ''
 
     const dataChave = `historico_${currentGame.toISOString().split('T')[0]}`
@@ -349,7 +348,7 @@ function personagemExiste(teste) {
 
 function buscarImagem(nome) {
     const nomeReal = nome.toLowerCase()
-    return dicionarioImagens[nomeReal] || dicionarioImagens.nomeReal || defaultImage.value
+    return characters[nomeReal].image || characters.nomeReal || defaultImage.value
 }
 </script>
 

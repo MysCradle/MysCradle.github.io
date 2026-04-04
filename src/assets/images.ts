@@ -1,8 +1,8 @@
-import none from '@/assets/jinseidle-icon.png'
-import kama from '@/assets/kama.png'
-import magico from '@/assets/magico.png'
-import sammie from '@/assets/sammie.png'
-import maggye from '@/assets/maggye.png'
+import none from '@/assets/personagens/none.png'
+import kama from '@/assets/personagens/kama/image.png'
+import magico from '@/assets/personagens/magico/image.png'
+import sammie from '@/assets/personagens/sammie/image.png'
+import maggye from '@/assets/personagens/maggye/image.png'
 
 export default {
     "none": none,
