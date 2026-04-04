@@ -55,7 +55,7 @@ personagens.add(new Personagem('Kanji', 19, 'Meio-Demônio', 'Feiticeiro', 'Fuku
 personagens.add(new Personagem('BloodHill', 60, '???', 'Atirador', '???', '???', true))
 personagens.add(new Personagem('Jhon', 54, '???', 'Lutador', '???', '???', true))
 
-const defaultImage = ref('https://myscradle.github.io/images/jinseidle-icon.png')
+const defaultImage = ref('https://myscradle.studio/images/jinseidle-icon.png')
 const assets = import.meta.glob('@/assets/*', { eager: true, import: 'default' })
 
 function resolverImagem(caminho) {
@@ -367,7 +367,7 @@ function buscarImagem(nome) {
             <ul id="sugestoes" style="display: none;"></ul>
 
             <div id="images" class="personImage">
-                <img src="https://myscradle.github.io/images/jinseidle-icon.png" alt="Imagem do Personagem">
+                <img src="https://myscradle.studio/images/jinseidle-icon.png" alt="Imagem do Personagem">
             </div>
 
             <div id="fim"></div>
