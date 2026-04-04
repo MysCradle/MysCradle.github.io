@@ -13,16 +13,14 @@ import galeriaImage from '@/assets/galeria.png'
     </div>
 
     <div class="cardsHome">
-        <Card subtitles="Jinseidle"
-            text="Teste seu conhecimento sobre os personagens de Jinsei no Unmei">
+        <Card subtitles="Jinseidle" text="Teste seu conhecimento sobre os personagens de Jinsei no Unmei">
             <RouterLink to="/jinseidle">
-                <img class="cardImage" width="300px" :src="jinseidleImage" alt="">
+                <img class="cardImage" width="300px" :src="jinseidleImage" alt="card para o jogo jinseidle">
             </RouterLink>
         </Card>
-        <Card subtitles="Galeria"
-            text="Teste seu conhecimento sobre os personagens de Jinsei no Unmei">
+        <Card subtitles="Galeria" text="Conheça os personagens já descobertos e veja o que sabemos sobre eles">
             <RouterLink to="/galeria">
-                <img class="cardImage" width="300px" :src="galeriaImage" alt="">
+                <img class="cardImage" width="300px" :src="galeriaImage" alt="card para a galeria de personagens">
             </RouterLink>
         </Card>
     </div>
