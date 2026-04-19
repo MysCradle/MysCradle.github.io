@@ -18,7 +18,7 @@ function toggleCard(id: number) {
     </div>
 
     <div class="cardsGaleria">
-        <Card v-for="p in personagens" :key="p.id" :title="p.nome" :class="['card', { active: activeCard === p.id }]"
+        <Card v-for="p in personagens" :key="p.id" :title="p.nome" :class="['cardG', { active: activeCard === p.id }]"
             @click="toggleCard(p.id)">
             <img :src="p.image" :alt="'desenho de ' + p.nome">
             <p><strong>Idade: </strong>{{ p.idade }}</p>
@@ -48,6 +48,8 @@ function toggleCard(id: number) {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 1rem;
+    flex-grow: 1;
 }
 
 .cardsGaleria {
@@ -59,22 +61,42 @@ function toggleCard(id: number) {
     gap: 20px;
 }
 
-.cardsGaleria>* {
+.cardsGaleria > * {
     width: 100%;
     text-align: start;
-    max-height: 430px;
+    max-height: 430px; 
     overflow: hidden;
-    transition: all .5s;
+    transition: max-height 0.5s ease-in-out, box-shadow 0.3s;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardsGaleria p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 5px 0;
 }
 
 .active {
-    max-height: 100vh;
+    max-height: 2000px !important; 
 }
 
 .cardsGaleria img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    flex-shrink: 0; /* Impede a imagem de diminuir para dar espaço ao texto */
+}
+
+.cardG:not(.active) {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+@media (max-width: 480px) {
+    .cardsGaleria {
+        grid-template-columns: 1fr; /* Força uma coluna em celulares pequenos */
+        width: 95%;
+    }
 }
 </style>

@@ -264,12 +264,22 @@ function obterPersonagemDoDia() {
 function gerarPersonagem(personagem) {
     const tr = document.createElement('tr')
 
+    const labels = {
+        nome: 'Nome',
+        idade: 'Idade',
+        raca: 'Raça',
+        especialidade: 'Espec.',
+        reino: 'Reino',
+        organizacao: 'Org.',
+        vivo: 'Vivo'
+    }
+
     for (const atr in personagem) {
         if (Object.hasOwn(personagem, atr)) {
             const td = document.createElement('td')
+            td.setAttribute('data-label', labels[atr] || atr) // Adiciona o label para o CSS
 
             let valor = personagem[atr]
-
             if (atr === 'vivo') {
                 if (valor === true) valor = 'Sim'
                 else if (valor === false) valor = 'Não'
@@ -282,12 +292,7 @@ function gerarPersonagem(personagem) {
             }
 
             td.textContent = valor
-
-            if (personagem[atr] !== personagemSorteadoAtivo[atr]) {
-                td.className = 'errado'
-            } else {
-                td.className = 'certo'
-            }
+            td.className = personagem[atr] !== personagemSorteadoAtivo[atr] ? 'errado' : 'certo'
 
             tr.appendChild(td)
         }
@@ -593,7 +598,7 @@ function buscarImagem(nome) {
     text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .jinseidle-page {
         padding: 1.25rem 0.75rem 2rem;
     }
@@ -614,6 +619,64 @@ function buscarImagem(nome) {
 
     .tableResult {
         border-radius: 16px;
+    }
+
+    /* Remove a rolagem horizontal do container pai */
+    .tableResult {
+        background: none;
+        border: none;
+        box-shadow: none;
+        overflow-x: visible;
+    }
+
+    /* Esconde o cabeçalho original da tabela */
+    .ma thead {
+        display: none;
+    }
+
+    .ma,
+    .ma tbody,
+    .ma tr,
+    .ma td {
+        display: block;
+        width: 100%;
+    }
+
+    .ma {
+        min-width: unset;
+        /* Remove o min-width que forçava o scroll */
+    }
+
+    .ma tr {
+        margin-bottom: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 0.5rem;
+    }
+
+    .ma td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .ma td:last-child {
+        border-bottom: none;
+    }
+
+    /* Adiciona o rótulo da coluna antes do valor usando data-attributes ou pseudo-elementos */
+    .ma td::before {
+        content: attr(data-label);
+        /* Precisamos ajustar o JS para isso funcionar */
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        color: #94a3b8;
+        text-align: left;
     }
 }
 </style>

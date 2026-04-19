@@ -28,12 +28,12 @@ import galeriaImage from '@/assets/galeria.png'
 
 <style>
 .sectionHome {
-    width: 100%;
+    width: 95%; /* Aumentado para aproveitar melhor o espaço em mobile */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: auto;
+    margin: 20px auto; /* Reduzido a margem superior */
     font-family: var(--font-heading);
 }
 
@@ -56,14 +56,53 @@ import galeriaImage from '@/assets/galeria.png'
 }
 
 .titleHome {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 10vw, 4rem);
     color: var(--color-secondary);
-    max-width: 450px;
+    line-height: 1.1;
 }
 
 .sub-titleHome {
-    font-size: 1.8rem;
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
     color: var(--color-secondary);
-    max-width: 350px;
+    margin-top: 10px;
+}
+
+.cardsHome {
+    margin: 50px auto; /* Margem menor em telas pequenas */
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha se necessário */
+    justify-content: center;
+    gap: 30px; /* Gap reduzido para mobile */
+    width: 90%;
+}
+
+.cardsHome > * {
+    /* Troque width fixo por max-width + width 100% */
+    width: 100%;
+    max-width: 400px;
+}
+
+.cardImage {
+    padding: 10px;
+    border: 1px solid var(--color-secondary);
+    border-radius: 10px;
+    /* Imagem responsiva */
+    width: 100%;
+    height: auto;
+    max-width: 300px; /* Mantém o tamanho que você queria no desktop */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Media Query ajustada */
+@media (max-width: 950px) {
+    .cardsHome {
+        margin: 40px auto;
+        gap: 40px;
+    }
+    
+    .titleHome, .sub-titleHome {
+        max-width: 100%; /* Remove a trava de largura no mobile */
+    }
 }
 </style>
