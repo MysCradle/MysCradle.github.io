@@ -28,12 +28,12 @@ import galeriaImage from '@/assets/galeria.png'
 
 <style>
 .sectionHome {
-    width: 95%; /* Aumentado para aproveitar melhor o espaço em mobile */
+    width: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 20px auto; /* Reduzido a margem superior */
+    margin: 20px auto;
     font-family: var(--font-heading);
 }
 
@@ -68,16 +68,15 @@ import galeriaImage from '@/assets/galeria.png'
 }
 
 .cardsHome {
-    margin: 50px auto; /* Margem menor em telas pequenas */
+    margin: 50px auto;
     display: flex;
-    flex-wrap: wrap; /* Permite quebrar linha se necessário */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 30px; /* Gap reduzido para mobile */
+    gap: 30px;
     width: 90%;
 }
 
 .cardsHome > * {
-    /* Troque width fixo por max-width + width 100% */
     width: 100%;
     max-width: 400px;
 }
@@ -86,15 +85,13 @@ import galeriaImage from '@/assets/galeria.png'
     padding: 10px;
     border: 1px solid var(--color-secondary);
     border-radius: 10px;
-    /* Imagem responsiva */
     width: 100%;
     height: auto;
-    max-width: 300px; /* Mantém o tamanho que você queria no desktop */
+    max-width: 300px; 
     display: block;
     margin: 0 auto;
 }
 
-/* Media Query ajustada */
 @media (max-width: 950px) {
     .cardsHome {
         margin: 40px auto;
@@ -102,7 +99,7 @@ import galeriaImage from '@/assets/galeria.png'
     }
     
     .titleHome, .sub-titleHome {
-        max-width: 100%; /* Remove a trava de largura no mobile */
+        max-width: 100%;
     }
 }
 </style>

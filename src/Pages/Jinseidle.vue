@@ -57,6 +57,7 @@ personagens.add(new Personagem('Jhon', 54, '???', 'Lutador', '???', '???', true)
 
 const defaultImage = ref('https://myscradle.studio/src/personagens/none.png')
 const assets = import.meta.glob('@/assets/*', { eager: true, import: 'default' })
+const imagensPersonagens = import.meta.glob('@/assets/personagens/*/image.png', { eager: true, import: 'default' })
 
 function resolverImagem(caminho) {
     if (!caminho) return defaultImage.value
@@ -166,27 +167,37 @@ function inicializarEventos() {
     })
 
     submit.addEventListener('click', () => {
-        const personagemTestado = personagemExiste(test.value)
-        if (!personagemTestado) return
-
-        const dataChave = `historico_${currentGame.toISOString().split('T')[0]}`
-        const historicoRaw = localStorage.getItem(dataChave)
-        const historico = historicoRaw ? JSON.parse(historicoRaw) : []
-
-        if (!historico.some((p) => p.nome === personagemTestado.nome)) {
-            historico.push(personagemTestado)
-            localStorage.setItem(dataChave, JSON.stringify(historico))
-            gerarPersonagem(personagemTestado)
-        }
-
-        if (personagemSorteadoAtivo && personagemTestado.nome === personagemSorteadoAtivo.nome) {
-            fim.textContent = 'Parabéns!'
-            registrarVitoria()
-            exibirContagemVitorias()
-        }
-
-        test.value = ''
+        submitted()
     })
+
+    test.addEventListener('keydown', (e) => {
+        if (e.key === "Enter") {
+            submitted()
+        }
+    })
+}
+
+function submitted() {
+    const personagemTestado = personagemExiste(test.value)
+    if (!personagemTestado) return
+
+    const dataChave = `historico_${currentGame.toISOString().split('T')[0]}`
+    const historicoRaw = localStorage.getItem(dataChave)
+    const historico = historicoRaw ? JSON.parse(historicoRaw) : []
+
+    if (!historico.some((p) => p.nome === personagemTestado.nome)) {
+        historico.push(personagemTestado)
+        localStorage.setItem(dataChave, JSON.stringify(historico))
+        gerarPersonagem(personagemTestado)
+    }
+
+    if (personagemSorteadoAtivo && personagemTestado.nome === personagemSorteadoAtivo.nome) {
+        fim.textContent = 'Parabéns!'
+        registrarVitoria()
+        exibirContagemVitorias()
+    }
+
+    test.value = ''
 }
 
 function montarListaDias() {
@@ -352,9 +363,33 @@ function personagemExiste(teste) {
 }
 
 function buscarImagem(nome) {
-    const nomeReal = nome.toLowerCase()
-    return characters[nomeReal].image || characters.nomeReal || defaultImage.value
+    const nomeReal = nome?.toLowerCase?.() ?? ''
+
+    if (!nomeReal) return none
+
+    const personagemConfig = characters[nomeReal]
+    if (personagemConfig?.image) {
+        return personagemConfig.image
+    }
+
+    const personagemPorNome = Object.values(characters).find((entry) => entry?.nome?.toLowerCase() === nomeReal)
+    if (personagemPorNome?.image) {
+        return personagemPorNome.image
+    }
+
+    const imagemPorNome = Object.entries(imagensPersonagens).find(([caminho]) =>
+        caminho.toLowerCase().includes(`/personagens/${nomeReal}/`)
+    )
+
+    if (imagemPorNome) {
+        return imagemPorNome[1]
+    }
+
+    return none
 }
+
+
+
 </script>
 
 <template>

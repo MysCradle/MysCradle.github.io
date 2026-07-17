@@ -10,6 +10,7 @@ const personagens = characters
 function toggleCard(id: number) {
     activeCard.value = activeCard.value === id ? null : id
 }
+
 </script>
 
 <template>
@@ -61,10 +62,10 @@ function toggleCard(id: number) {
     gap: 20px;
 }
 
-.cardsGaleria > * {
+.cardsGaleria>* {
     width: 100%;
     text-align: start;
-    max-height: 430px; 
+    max-height: 430px;
     overflow: hidden;
     transition: max-height 0.5s ease-in-out, box-shadow 0.3s;
     cursor: pointer;
@@ -79,14 +80,15 @@ function toggleCard(id: number) {
 }
 
 .active {
-    max-height: 2000px !important; 
+    max-height: 2000px !important;
 }
 
 .cardsGaleria img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    flex-shrink: 0; /* Impede a imagem de diminuir para dar espaço ao texto */
+    flex-shrink: 0;
+    /* Impede a imagem de diminuir para dar espaço ao texto */
 }
 
 .cardG:not(.active) {
@@ -95,7 +97,8 @@ function toggleCard(id: number) {
 
 @media (max-width: 480px) {
     .cardsGaleria {
-        grid-template-columns: 1fr; /* Força uma coluna em celulares pequenos */
+        grid-template-columns: 1fr;
+        /* Força uma coluna em celulares pequenos */
         width: 95%;
     }
 }
